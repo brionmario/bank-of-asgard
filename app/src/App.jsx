@@ -37,6 +37,7 @@ import "./assets/css/style.scss";
 import { BankAccountProvider } from "./context/bank-account-provider";
 import IdentityVerificationPage from "./pages/identity-verification";
 import { IdentityVerificationProvider } from "./context/identity-verification-provider";
+import { SignedIn, SignOutButton, SignedOut, SignInButton } from "@asgardeo/react";
 
 const App = () => {
   const { isSignedIn, signIn, signOut } = useAsgardeo();
@@ -67,6 +68,20 @@ const App = () => {
                     Business
                   </span>
                 </NavLink> */}
+              </span>
+              <span>
+                <SignedIn>
+                  <SignOutButton className="login_link">Logout</SignOutButton>
+                </SignedIn>
+
+                <SignedOut>
+                  <Link to={ ROUTES.REGISTER_ACCOUNT } className="register_link">
+                    <span>
+                        Open an account
+                    </span>
+                  </Link>
+                  <SignInButton className="login_link">Login</SignInButton>
+                </SignedOut>
               </span>
               <span>
                 { isSignedIn ?
